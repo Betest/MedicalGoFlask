@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/addappointment" method="POST">
+
+    <div class="form-group">
+      <label for="exampleInputTask1">Nombre</label>
+      <input type="text" class="form-control" name="firstName" id="task">
+      <small id="tasklHelp" class="form-text text-muted">Ingresa el nombre.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputDate1">Apellido</label>
+      <input type="text" class="form-control" name="lastName" id="date">
+      <small id="dateHelp" class="form-text text-muted">Ingresa el Apellido.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputDate1">Identificacion</label>
+        <input type="text" class="form-control" name="ident" id="date">
+        <small id="dateHelp" class="form-text text-muted">Ingresa la Identificacion.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputDate1">Fecha Nacimiento</label>
+        <input type="date" class="form-control" name="dateBir" id="date">
+        <small id="dateHelp" class="form-text text-muted">Ingresa la fecha de nacimiento.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputDate1">Ciudad Residencia</label>
+        <input type="text" class="form-control" name="city" id="date">
+        <small id="dateHelp" class="form-text text-muted">Ingresa Ciudad Residencia.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputDate1">Barrio</label>
+        <input type="text" class="form-control" name="neighborhood" id="date">
+        <small id="dateHelp" class="form-text text-muted">Ingresa el barrio.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputDate1">Numero Celular</label>
+        <input type="number" class="form-control" name="mobile" id="date">
+        <small id="dateHelp" class="form-text text-muted">Ingresa el celular.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputDate1">Fecha Cita</label>
+        <input type="datetime-local" class="form-control" name="dateAppointment" id="date">
+        <small id="dateHelp" class="form-text text-muted">Ingresa la fecha para la cita</small>
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+{% endblock %}
