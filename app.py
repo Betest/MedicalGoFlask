@@ -32,7 +32,7 @@ def createappointment():
 
 
 
-# Mamejo de peticiones Add Task
+# Mamejo de peticiones Add Appointment
 
 
 @app.route('/addappointment', methods=['POST'])
@@ -41,14 +41,14 @@ def addappointment():
         firstName = request.form['firstName']
         lastName = request.form['lastName']
         ident = request.form['ident']
-        dateBir = request.form['dateBir']
+        date = request.form['date']
         city = request.form['city']
         neighborhood = request.form['neighborhood']
         mobile = request.form['mobile']
         dateAppointment = request.form['dateAppointment']
 
         mycursor = mydb.cursor()
-        sql = f"INSERT INTO appointments (firstName, lastName, ident, dateBir, city, neighborhood, mobile, dateAppointment) VALUES('{firstName}','{lastName}','{ident}','{dateBir}','{city}','{neighborhood}','{mobile}','{dateAppointment}')"
+        sql = f"INSERT INTO appointments (firstName, lastName, ident, date, city, neighborhood, mobile, dateAppointment) VALUES('{firstName}','{lastName}','{ident}','{date}','{city}','{neighborhood}','{mobile}','{dateAppointment}')"
         mycursor.execute(sql)        
         mydb.commit()
 
