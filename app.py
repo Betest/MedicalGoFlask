@@ -60,9 +60,8 @@ def addappointment():
 
 @app.route('/editappointment/<id>')
 def editappointment(id):
-    mycursor = mydb.cursor()
-    sql = f'SELECT * FRON appointments WHERE id = {id}'
-    mycursor.execute(sql)
+    mycursor = mydb.cursor()    
+    mycursor.execute(f'SELECT * FROM appointments WHERE id = {id}')
     data = mycursor.fetchall()
     print(data)
     return render_template('edit-appointment.html', appointment = data[0])
@@ -93,7 +92,7 @@ def updateappointment(id):
         """, (firstName, lastName, ident, date, city, neighborhood, mobile, dateAppointment))
         mycursor.execute(sql)
 
-    return
+    return render_template('home.html')
 
 
 
