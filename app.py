@@ -78,18 +78,7 @@ def updateappointment(id):
         mobile = request.form['mobile']
         dateAppointment = request.form['dateAppointment']
         mycursor = mydb.cursor()
-        sql = ("""
-        UPDATE appointments
-        SET firstName = %s,
-            lastName = %s,
-            ident = %s,
-            date = %s,
-            city = %s,
-            neighborhood = %s,
-            mobile = %s,
-            dateAppintment = %s
-        WHERE id = %s
-        """, (firstName, lastName, ident, date, city, neighborhood, mobile, dateAppointment))
+        sql = f'UPDATE appointments SET firstName = {firstName}, lastName = {lastName}, ident = {ident}, date = {date}, city = {city}, neighborhood = {neighborhood}, mobile = {mobile}, dateAppintment = {dateAppointment} WHERE id ={id}'
         mycursor.execute(sql)
 
     return render_template('home.html')
