@@ -31,9 +31,6 @@ def home():
 def createappointment():
     return render_template('create-appointment.html')
 
-
-
-
 # Mamejo de peticiones Add Appointment
 
 
@@ -62,7 +59,16 @@ def addappointment():
 def editappointment():
     return 'edit appointment'
 
+@app.route('/deleteappointment/<int:id>')
+def deleteppointment(id):
+    sql = "DELETE FROM appointments WHERE id = {0}".format(id)
+    mycursor = mydb.cursor()
+    mycursor.execute(sql)
+    mydb.commit()
 
+    flash('Cita eliminada correctamente!')
+
+    return redirect (url_for('home'))
 # Ejecutar la app en el server / en modo debug
 
 if __name__ == "__main__":
