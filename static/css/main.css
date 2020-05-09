@@ -6,7 +6,6 @@ body{
 
 }
 
-icon img{
-    width: 10px;
-    height: 10px;
+.icon img{
+    width: 60px;
 }
