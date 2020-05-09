@@ -61,11 +61,40 @@ def addappointment():
 @app.route('/editappointment/<id>')
 def editappointment(id):
     mycursor = mydb.cursor()
-    sql = 'SELECT * FRON appointments WHERE id = %s', (id)
+    sql = f'SELECT * FRON appointments WHERE id = {id}'
     mycursor.execute(sql)
     data = mycursor.fetchall()
     print(data)
-    return 'edit appointment'
+    return render_template('edit-appointment.html', appointment = data[0])
+
+@app.route('/updateappointment/<id>', methods=['POST'])
+def updateappointment(id):
+    if request.method == 'POST':
+        firstName = request.form['firstName']
+        lastName = request.form['lastName']
+        ident = request.form['ident']
+        date = request.form['date']
+        city = request.form['city']
+        neighborhood = request.form['neighborhood']
+        mobile = request.form['mobile']
+        dateAppointment = request.form['dateAppointment']
+        mycursor = mydb.cursor()
+        sql = ("""
+        UPDATE appointments
+        SET firstName = %s,
+            lastName = %s,
+            ident = %s,
+            date = %s,
+            city = %s,
+            neighborhood = %s,
+            mobile = %s,
+            dateAppintment = %s
+        WHERE id = %s
+        """, (firstName, lastName, ident, date, city, neighborhood, mobile, dateAppointment))
+        mycursor.execute(sql)
+
+    return
+
 
 
 # Ejecutar la app en el server / en modo debug

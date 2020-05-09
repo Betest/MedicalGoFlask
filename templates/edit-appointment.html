@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<form action="/editappointment" method="POST">
+<form action="/updateppointment/{{appointment.0}}" method="POST">
 
     <div class="form-group">
       <label for="exampleInputAppointment1">Nombre</label>
