@@ -75,10 +75,9 @@ def updateappointment(id):
         mobile = request.form['mobile']
         dateAppointment = request.form['dateAppointment']
         mycursor = mydb.cursor()
-        sql = f'UPDATE appointments SET firstName = {firstName}, lastName = {lastName}, ident = {ident}, date = {date}, city = {city}, neighborhood = {neighborhood}, mobile = {mobile}, dateAppintment = {dateAppointment} WHERE id ={id}'
-        mycursor.execute(sql)
+        mycursor.execute("""UPDATE appointments SET firstName = %s, lastName = %s, ident = %s, date = %s, city = %s, neighborhood = %s, mobile = %s, dateAppointment = %s WHERE id = %s""", (firstName, lastName, ident, date, city, neighborhood, mobile, dateAppointment, id))
 
-    return render_template('home.html')
+    return redirect(url_for('home'))
 
 
 @app.route('/deleteappointment/<int:id>')
