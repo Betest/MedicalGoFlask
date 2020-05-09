@@ -58,8 +58,13 @@ def addappointment():
 
         return redirect(url_for('home'))
 
-@app.route('/editappointment')
-def editappointment():
+@app.route('/editappointment/<id>')
+def editappointment(id):
+    mycursor = mydb.cursor()
+    sql = 'SELECT * FRON appointments WHERE id = %s', (id)
+    mycursor.execute(sql)
+    data = mycursor.fetchall()
+    print(data)
     return 'edit appointment'
 
 

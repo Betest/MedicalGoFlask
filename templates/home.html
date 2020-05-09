@@ -37,8 +37,8 @@
                     <td>{{appointment.7}}</td>
                     <td>{{appointment.8}}</td>
                     <td>
-                      <a href="/edit"><img src="" alt=""></a>
-                      <a href="/delete/{{appointment.0}}"><img src="../static/icon/delete.png" class="icon" alt=""></a>
+                      <a href="/editappointment/{{ appointment.0 }}">edit</a>
+                      <a href="/delete/{{appointment.0}}">delete</a>
                     </td>
                 </tr>
             {% endfor %}        
