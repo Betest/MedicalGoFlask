@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -10,6 +10,8 @@ mydb = mysql.connector.connect(
 
 app = Flask(__name__)
 
+#settings
+app.secret_key = 'secretkey'
 
 # Rutas
 @app.route('/home')
@@ -52,9 +54,13 @@ def addappointment():
         mycursor.execute(sql)        
         mydb.commit()
 
+        flash('Cita agregada correctamente!')
+
         return redirect(url_for('home'))
 
-
+@app.route('/editappointment')
+def editappointment():
+    return 'edit appointment'
 
 
 # Ejecutar la app en el server / en modo debug
