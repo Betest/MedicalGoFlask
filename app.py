@@ -76,7 +76,7 @@ def updateappointment(id):
         dateAppointment = request.form['dateAppointment']
         mycursor = mydb.cursor()
         mycursor.execute("""UPDATE appointments SET firstName = %s, lastName = %s, ident = %s, date = %s, city = %s, neighborhood = %s, mobile = %s, dateAppointment = %s WHERE id = %s""", (firstName, lastName, ident, date, city, neighborhood, mobile, dateAppointment, id))
-
+        flash('Cita actualizada correctamente!')
     return redirect(url_for('home'))
 
 
