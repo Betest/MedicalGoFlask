@@ -14,6 +14,10 @@ app = Flask(__name__)
 app.secret_key = 'secretkey'
 
 # Rutas
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
 @app.route('/home')
 def root():
     return render_template('home.html')
