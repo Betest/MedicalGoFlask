@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from form import AppointmentForm
+
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -12,6 +14,10 @@ app = Flask(__name__)
 
 #settings
 app.secret_key = 'secretkey'
+
+#form = AppointmentForm(request.form)
+
+
 
 # Rutas
 @app.route('/index')
@@ -94,7 +100,11 @@ def deleteppointment(id):
     flash('Cita eliminada correctamente!')
 
     return redirect (url_for('home'))
+
+
+
+    
 # Ejecutar la app en el server / en modo debug
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="localhost", port=5000 ,debug=True)
