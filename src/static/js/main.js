@@ -4,7 +4,7 @@ if(btnDelete){
     const btnArray = Array.from(btnDelete);
     btnArray.forEach((btn) =>{
         btn.addEventListener('click', (e) =>{
-            if(!confirm('Esta seguro que desea borral la cita?')){
+            if(!confirm('Esta seguro que desea borrar la cita?')){
                 e.preventDefault();
             }
         });
