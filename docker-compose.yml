@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  flaskapp:
+    build: .
+
+    ports: 
+    - "5005-5015:5000-5010"
+    environment:
+      FLASK_ENV: development
+      FLASK_APP: src/app.py
+      FLASK_RUN_HOST: 0.0.0.0
+
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: appointmentapp
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:   
+      - type: bind
+        source: C:\Users\yohan\Documents\pnc\contenedores\MedicalGoFlask\src\mysql-data
+        target: /var/lib/mysql
+    ports:
+      - 3306:3306
+
+    

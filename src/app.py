@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from form import AppointmentForm
+#from form import AppointmentForm
 
 import mysql.connector
 
 mydb = mysql.connector.connect(
-  host="localhost",
+  host="mysql",
   user="root",
-  passwd="",
+  passwd="admin",
   database="appointmentapp"
 )
 
@@ -107,4 +107,4 @@ def deleteppointment(id):
 # Ejecutar la app en el server / en modo debug
 
 if __name__ == "__main__":
-    app.run(host="localhost", port=5000 ,debug=True)
+    app.run(host="0.0.0.0", port=5000 ,debug=True)
